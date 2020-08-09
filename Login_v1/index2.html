@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+	<title>Home</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width-device-width-scale=1">
+	<meta id="_csrf" name="_csrf" th:content="${_csrf.token}"/>
+	<meta id="_csrf_header" name="_csrf_header" th:content="${_csrf.headerName}"/>
+	
+	<link rel="stylesheet"
+		href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" />
+	<script
+		src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script
+		src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"></script>
+	<script
+		src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
+	<script src="/js/postRequest.js"></script>
+	<script src="/js/getRequest.js"></script>
+	<style>
+		.vertical-menu {
+		  margin-right: 20px;
+		  float: right;
+  		  clear: both;
+		  width: 200px;
+		}
+		
+		.vertical-menu a {
+		  background-color: #eee;
+		  color: black;
+		  display: block;
+		  padding: 12px;
+		  text-decoration: none;
+		}
+		
+		.vertical-menu a:hover {
+		  background-color: #6A68B9;
+		}
+		
+		.vertical-menu a.active {
+		  background-color: #4CAF50;
+		  color: white;
+		}
+	</style>
+</head>
+
+<body>
+	<br/><br/><br/><br/>
+
+<div class="vertical-menu">
+  <a href="#">الرئيسية</a>
+  <a href="#">قائمة الانتظار</a>
+  <a href="#">المستخدمين</a>
+  <a data-toggle="collapse" href="#hello">الادارة</a>
+  <div id="hello" class="panel-collapse collapse">
+		<ul class="list-group">
+			<li><a
+				href="#">Fast Link Inquiry</a></li>
+			<li><a
+				href="#">Fast Link Payment</a></li>	
+			<li><a
+				href="#">Fast Link Reprint</a></li>							
+		</ul>
+	</div>					
+</div>
+
+	
+	<div class="col-lg-4 container">
+		<h3>Pay a bill</h3>
+		<form id="paymentForm">
+			<div class="form-group">
+				<label for="paymentType">Payment type:</label> <select class="form-control"
+				   id="paymentType" name="paymentType">
+				   <option value="Mobile bill">Mobile bill</option>
+			       <option value="Landline bill">Landline bill</option>
+			       <option value="General utility bill">General utility bill</option>
+               </select>
+			</div>
+			<div class="form-group">
+				<label for="phoneNumber">Phone number:</label> <input type="number"
+					class="form-control" id="phoneNumber" placeholder="Enter phone number"
+					name="phoneNumber" required>
+			</div>
+			<div class="form-group">
+				<label for="amount">Amount:</label> <input type="number" min="1"
+					class="form-control" id="amount" placeholder="Enter amount"
+					name="amount" required>
+			</div>
+			<button type="submit" class="btn btn-primary">Pay</button>
+			<a href="/new"><button type="button" class="btn btn-primary">Pay</button></a>
+		</form>		
+	</div>
+	<br/><br/><br/><br/>
+	<!--<div class="container">
+		<div class="table-responsive">
+			<h3>Payments report</h3>
+			<br/>
+			<table class="table table-bordered table-striped" id="paymentsReport">
+				<tr>
+					<th>ID</th>
+					<th>Phone number</th>
+					<th>Bill type</th>
+					<th>Amount</th>
+					<th>Date and Time</th>
+				</tr>
+			</table>
+		</div>
+		<br/>
+		<button class="btn btn-primary" id="generateReport"> Generate report</button>
+		<br/><br/><br/><br/>
+	</div>-->	
+</body>
+</html>
